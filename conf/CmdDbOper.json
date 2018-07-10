@@ -1,0 +1,128 @@
+{
+	"data_type":["attribute","log"],
+	"data_type_enum":{"attribute":1, "log":2},
+	"section_factor":["imid", "group_id", "string", "userset_id"],
+	"section_factor_enum":{"imid":1, "group_id":2, "string":3, "userset_id":4},
+	"factor_section":{
+		"imid":[10000000, 20000000],
+		"group_id":[100000, 200000],
+		"userset_id":[1000000, 2000000],
+		"string":[4294967295]
+	},
+	"table":
+	{
+		"tb_userinfo":{"data_type":1, "section_factor":1, "db_name":"db_userinfo", "table_num":100},
+   		"tb_vestinfo":{"data_type":1, "section_factor":1, "db_name":"db_userinfo", "table_num":1},
+   		"tb_user_has_group_info":{"data_type":1, "section_factor":1, "db_name":"db_userinfo", "table_num":100},
+   		"tb_friends":{"data_type":1, "section_factor":1, "db_name":"db_relationship", "table_num":100},
+   		"tb_contacts_friends":{"data_type":1, "section_factor":1, "db_name":"db_relationship", "table_num":100},
+   		"tb_sync_user":{"data_type":1, "section_factor":3, "db_name":"db_im_foundation", "table_num":100},
+   		"tb_project_group":{"data_type":1, "section_factor":3, "db_name":"db_im_foundation", "table_num":100},
+   		"tb_nickname_imid":{"data_type":1, "section_factor":3, "db_name":"db_im_foundation", "table_num":100},
+   		"tb_phoneno_imid":{"data_type":1, "section_factor":3, "db_name":"db_im_foundation", "table_num":100},
+   		"tb_group_chat":{"data_type":2, "section_factor":2, "db_name":"db_groupmsg", "table_num":100},
+   		"tb_group_notify":{"data_type":2, "section_factor":2, "db_name":"db_groupmsg", "table_num":100},
+        "tb_search_groupinfo":{"data_type":1, "section_factor":3, "db_name":"db_search_groupinfo", "table_num":1},
+   		"tb_groupmsg_recv":{"data_type":2, "section_factor":1, "db_name":"db_singlemsg", "table_num":100},
+   		"tb_single_chat":{"data_type":2, "section_factor":1, "db_name":"db_singlemsg", "table_num":100},
+   		"tb_personal_notify":{"data_type":2, "section_factor":1, "db_name":"db_singlemsg", "table_num":100},
+   		"tb_groupinfo":{"data_type":1, "section_factor":2, "db_name":"db_group_manage", "table_num":100},
+   		"tb_group_member":{"data_type":1, "section_factor":2, "db_name":"db_group_manage", "table_num":100},
+   		"tb_group_apply_verify":{"data_type":2, "section_factor":2, "db_name":"db_group_manage", "table_num":100},
+   		"tb_group_invite_verify":{"data_type":2, "section_factor":2, "db_name":"db_group_manage", "table_num":100},
+   		"tb_blog":{"data_type":2, "section_factor":1, "db_name":"db_community", "table_num":100},
+        "tb_official":{"data_type":1, "section_factor":1, "db_name":"db_official","table_num":100},
+        "tb_official_system_account":{"data_type":1, "section_factor":1, "db_name":"db_official","table_num":1},
+        "tb_official_userset":{"data_type":1, "section_factor":4, "db_name":"db_official","table_num":100},
+        "tb_official_userset_member":{"data_type":1, "section_factor":4, "db_name":"db_official","table_num":100},
+        "tb_official_subscriber":{"data_type":1, "section_factor":1, "db_name":"db_official","table_num":100},
+        "tb_official_user_subscribe":{"data_type":1, "section_factor":1, "db_name":"db_official","table_num":100},
+        "tb_official_msg":{"data_type":2, "section_factor":1,"db_name":"db_official","table_num":100},
+        "tb_official_user_last_recv":{"data_type":2, "section_factor":1, "db_name":"db_official","table_num":100},
+        "tb_official_userset_msg":{"data_type":2, "section_factor":4, "db_name":"db_official","table_num":100},
+        "tb_official_specified_user_msg":{"data_type":2, "section_factor":1,"db_name":"db_official","table_num":100},
+   		"tb_punish":{"data_type":1, "section_factor":1, "db_name":"db_user_management", "table_num":100},
+   		"tb_report_list":{"data_type":2, "section_factor":1, "db_name":"db_user_management", "table_num":1},
+		"tcc_chatMsgHistory":{"data_type":2, "section_factor":1, "db_name":"niiwoo_log","table_num":1}
+	},
+	"database":
+	{
+		"db_userinfo":{"db_group":"im_user"},
+        "db_search_groupinfo":{"db_group":"im_account"},
+		"db_relationship":{"db_group":"im_relation"},
+        "db_im_account":{"db_group":"im_account"},
+        "db_groupmsg":{"db_group":"im_msg"},
+        "db_singlemsg":{"db_group":"im_msg"},
+        "db_group_manage":{"db_group":"im_group"},
+		"db_community":{"db_group":"im_msg"},
+		"db_user_management":{"db_group":"im_user"},
+        "db_official":{"db_group":"im_official"},
+		"niiwoo_log":{"db_group":"im_custom"}
+	},
+	"cluster":{
+		"attribute":{
+			"imid":{
+				"LE_10000000":{"im_account":"im_account_1", "im_user":"im_user_1", "im_relation":"im_relation_1",
+				         "im_msg":"im_msg_1", "im_official":"im_official_1", "im_group":"im_group_1", "im_custom":"custom_db"},
+				"LE_20000000":{"im_account":"im_account_2", "im_user":"im_user_2", "im_relation":"im_relation_2",
+				         "im_msg":"im_msg_2", "im_official":"im_official_2", "im_group":"im_group_2", "im_custom":"custom_db"}
+			},
+			"group_id":{
+				"LE_100000":{"im_account":"im_account_1", "im_user":"im_user_1", "im_relation":"im_relation_1",
+				         "im_msg":"im_msg_1", "im_official":"im_official_1", "im_group":"im_group_1", "im_custom":"custom_db"},
+				"LE_200000":{"im_account":"im_account_2", "im_user":"im_user_2", "im_relation":"im_relation_2",
+				         "im_msg":"im_msg_2", "im_official":"im_official_2", "im_group":"im_group_2", "im_custom":"custom_db"}
+			},
+			"userset_id":{
+				"LE_1000000":{"im_account":"im_account_1", "im_user":"im_user_1", "im_relation":"im_relation_1",
+				         "im_msg":"im_msg_1", "im_official":"im_official_1", "im_group":"im_group_1", "im_custom":"custom_db"},
+				"LE_2000000":{"im_account":"im_account_2", "im_user":"im_user_2", "im_relation":"im_relation_2",
+				         "im_msg":"im_msg_2", "im_official":"im_official_2", "im_group":"im_group_2", "im_custom":"custom_db"}
+			},
+			"string":{
+				"LE_4294967295":{"im_account":"im_account_1", "im_user":"im_user_1", "im_relation":"im_relation_1",
+				         "im_msg":"im_msg_1", "im_official":"im_official_1", "im_group":"im_group_1"}
+			}
+		},
+		"log":{
+			"imid":{
+				"LE_10000000":{"im_account":"im_account_1", "im_user":"im_user_1", "im_relation":"im_relation_1",
+				         "im_msg":"im_msg_1", "im_official":"im_official_1", "im_group":"im_group_1", "im_custom":"custom_db"},
+				"LE_20000000":{"im_account":"im_account_2", "im_user":"im_user_2", "im_relation":"im_relation_2",
+				         "im_msg":"im_msg_2", "im_official":"im_official_2", "im_group":"im_group_2", "im_custom":"custom_db"}
+			},
+			"group_id":{
+				"LE_100000":{"im_account":"im_account_1", "im_user":"im_user_1", "im_relation":"im_relation_1",
+				         "im_msg":"im_msg_1", "im_official":"im_official_1", "im_group":"im_group_1", "im_custom":"custom_db"},
+				"LE_200000":{"im_account":"im_account_2", "im_user":"im_user_2", "im_relation":"im_relation_2",
+				         "im_msg":"im_msg_2", "im_official":"im_official_2", "im_group":"im_group_2", "im_custom":"custom_db"}
+			},
+			"userset_id":{
+				"LE_1000000":{"im_account":"im_account_1", "im_user":"im_user_1", "im_relation":"im_relation_1",
+				         "im_msg":"im_msg_1", "im_official":"im_official_1", "im_group":"im_group_1", "im_custom":"custom_db"},
+				"LE_2000000":{"im_account":"im_account_2", "im_user":"im_user_2", "im_relation":"im_relation_2",
+				         "im_msg":"im_msg_2", "im_official":"im_official_2", "im_group":"im_group_2", "im_custom":"custom_db"}
+			},
+			"string":{
+				"LE_4294967295":{"im_account":"im_account_1", "im_user":"im_user_1", "im_relation":"im_relation_1",
+				         "im_msg":"im_msg_1", "im_official":"im_official_1", "im_group":"im_group_1"}
+			}
+		}
+	},
+	"db_group":{
+	    "im_account_1":{"master_host":"192.168.18.80", "slave_host":"192.168.18.80", "port":3395,
+		    "user":"im", "password":"im123456", "charset":"latin1", "query_permit":6, "timeout":3},
+	    "im_user_1":{"master_host":"192.168.18.80", "slave_host":"192.168.18.80", "port":3395,
+		    "user":"im", "password":"im123456", "charset":"latin1", "query_permit":6, "timeout":3},
+	    "im_relation_1":{"master_host":"192.168.18.80", "slave_host":"192.168.18.80", "port":3395,
+		    "user":"im", "password":"im123456", "charset":"latin1", "query_permit":6, "timeout":3},
+	    "im_msg_1":{"master_host":"192.168.18.80", "slave_host":"192.168.18.80", "port":3395,
+		    "user":"im", "password":"im123456", "charset":"latin1", "query_permit":6, "timeout":3},
+	    "im_group_1":{"master_host":"192.168.18.80", "slave_host":"192.168.18.80", "port":3395,
+		    "user":"im", "password":"im123456", "charset":"latin1", "query_permit":6, "timeout":3},
+	    "im_official_1":{"master_host":"192.168.18.80", "slave_host":"192.168.18.80", "port":3395,
+		    "user":"im", "password":"im123456", "charset":"latin1", "query_permit":6, "timeout":3},
+	    "custom_db":{"master_host":"192.168.18.16", "slave_host":"192.168.18.16", "port":3306,
+		    "user":"niiwoodba", "password":"tuandai123", "charset":"utf8", "query_permit":6, "timeout":3}
+	}
+}
