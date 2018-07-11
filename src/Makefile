@@ -16,9 +16,9 @@ SYSTEM_LIB_PATH:=/usr/lib
 endif
 LIB3RD_PATH = ../../NebulaDepend
 NEBULA_PATH = ../../Nebula
-BEACON_PATH = ..
+DBAGENT_PATH = ..
 
-VPATH = $(BEACON_PATH)/src
+VPATH = $(DBAGENT_PATH)/src
 SUB_DIRS := $(foreach dir, $(VPATH), $(shell find $(dir) -maxdepth 5 -type d))
 DIRS := $(SUB_DIRS)
 
@@ -27,7 +27,7 @@ INC := $(INC) \
        -I $(LIB3RD_PATH)/include \
        -I $(LIB3RD_PATH)/include/mysql56 \
        -I $(NEBULA_PATH)/include \
-       -I $(BEACON_PATH)/src 
+       -I $(DBAGENT_PATH)/src 
 
 
 LDFLAGS := $(LDFLAGS) -D_LINUX_OS_ \
@@ -50,8 +50,8 @@ all: $(TARGET)
 	
 NebulaDbAgent: $(OBJS)
 	$(CXX) $(CXXFLAG) $(DEFINE_SERVER) -o $@ $(OBJS) $(LDFLAGS) $(INC)
-	mkdir -p $(BEACON_PATH)/bin	
-	cp -f $@ $(BEACON_PATH)/bin/
+	mkdir -p $(DBAGENT_PATH)/bin	
+	cp -f $@ $(DBAGENT_PATH)/bin/
 
 %.o:%.cpp
 	$(CXX) $(INC) $(CXXFLAG) $(CFLAGS) $(DEFINE_SERVER) -c -o $@ $< $(LDFLAGS)
@@ -62,4 +62,4 @@ NebulaDbAgent: $(OBJS)
 clean:
 	rm -f $(OBJS)
 	rm -f $(TARGET)
-	rm -rf $(BEACON_PATH)/bin
+	rm -rf $(DBAGENT_PATH)/bin
