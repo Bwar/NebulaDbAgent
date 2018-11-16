@@ -27,11 +27,11 @@
     "net_log_level": 6,
     "//beacon": "控制中心",
     "beacon": [
-        { "host": "192.168.157.138", "port": "9987" }
+        { "host": "192.168.157.130", "port": "16000" }
     ],
     "boot_load": {
         "cmd": [
-            { "cmd": 505, "class": "agent::CmdExecSql" }
+            { "cmd": 505, "class": "dbagent::CmdExecSql" }
         ],
         "module": []
     },

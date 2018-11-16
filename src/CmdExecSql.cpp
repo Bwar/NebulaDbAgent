@@ -28,16 +28,27 @@ CmdExecSql::~CmdExecSql()
         m_szColValue = NULL;
     }
 
-    for (std::map<std::string, tagConnection*>::iterator iter = m_mapDbiPool.begin();
+    for (auto iter = m_mapDbiPool.begin();
         iter != m_mapDbiPool.end(); ++iter)
     {
-        if (iter->second != NULL)
+        if (iter->second != nullptr)
         {
             delete iter->second;
-            iter->second = NULL;
+            iter->second = nullptr;
         }
     }
     m_mapDbiPool.clear();
+
+    for (auto iter = m_mapDbInstanceInfo.begin();
+            iter != m_mapDbInstanceInfo.end(); ++iter)
+    {
+        if (iter->second != nullptr)
+        {
+            delete iter->second;
+            iter->second = nullptr;
+        }
+    }
+    m_mapDbInstanceInfo.clear();
 }
 
 bool CmdExecSql::Init()

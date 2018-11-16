@@ -42,7 +42,7 @@ typedef ::std::vector < T_vecRow > T_vecResultSetWithoutDict;
 struct tagDbConnInfo							// DB连接配置
 {
     char m_szDbCharSet[16];                 	// DB字符集
-    char m_szDbHost[32];                    	// DB所在服务器IP
+    char m_szDbHost[64];                    	// DB所在服务器IP
     char m_szDbUser[32];                    	// DB用户名
     char m_szDbPwd[32];                     	// DB用户密码
     char m_szDbName[32];                    	// DB库名

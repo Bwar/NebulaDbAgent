@@ -1,0 +1,28 @@
+{
+	"data_type":["result"],
+	"data_type_enum":{"result":1},
+	"section_factor":["app_id"],
+	"section_factor_enum":{"app_id":1},
+	"factor_section":{
+		"app_id":[1, 2000],
+	},
+	"table":
+	{
+		"tb_user":{"data_type":1, "section_factor":1, "db_name":"db_analyse", "table_num":100},
+	},
+	"database":
+	{
+		"db_analyse":{"db_group":"analyse"}
+	},
+	"cluster":{
+		"result":{
+			"app_id":{
+				"LE_2000":{"analyse":"analyse_1"}
+			}
+		}
+	},
+	"db_group":{
+	    "analyse_1":{"master_host":"127.0.0.1", "slave_host":"127.0.0.1", "port":3306,
+		    "user":"analyse", "password":"87654321", "charset":"utf8", "query_permit":6, "timeout":3}
+	}
+}
