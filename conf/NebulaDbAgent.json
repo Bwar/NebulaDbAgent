@@ -8,6 +8,8 @@
     "server_name": "neb_DbAgent",
     "//worker_num": "进程数量",
     "worker_num": 10,
+    "//cpu_affinity":"是否设置进程CPU亲和度（绑定CPU）",
+    "cpu_affinity":false,
     "//worker_capacity": "子进程最大工作负荷",
     "worker_capacity": 1000000,
     "//config_path": "配置文件路径（相对路径）",
@@ -33,7 +35,9 @@
         "cmd": [
             { "cmd": 505, "class": "dbagent::CmdExecSql" }
         ],
-        "module": []
+        "module": [],
+        "session":[],
+        "step":[]
     },
     "//refresh_interval": "刷新Server配置，检查、加载插件动态库时间周期（周期时间长短视服务器忙闲而定）",
     "refresh_interval": 60,
