@@ -2,7 +2,7 @@ CC = gcc-6
 CXX = g++-6
 CFLAGS = -g -O2 -fPIC 
 cplusplus_version=$(shell g++ --version | grep "^g++" | awk '{if ($$NF > 5.0) print "c++14"; else print "c++11";}')
-CXXFLAG =  -std=$(cplusplus_version) -g2 -O3 -Wall -m64 -Wl,--export-dynamic -D_GNU_SOURCE=1 -D_REENTRANT -D__GUNC__ -fPIC -DNODE_BEAT=10.0 
+CXXFLAG =  -std=$(cplusplus_version) -g2 -O3 -Wall -Wno-unused-function -m64 -Wl,--export-dynamic -D_GNU_SOURCE=1 -D_REENTRANT -D__GUNC__ -fPIC -DNODE_BEAT=10.0 
 
 ARCH:=$(shell uname -m)
 
