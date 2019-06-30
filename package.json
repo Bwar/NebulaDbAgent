@@ -1,8 +1,8 @@
 {
-	"name":"NebulaDbAgent",
+	"name":"NebulaInterface",
 	"version":"0.9.0",
-	"description":"Nebula DbAgent is an application for mysql db proxy based on Nebula.",
-	"keywords":["Nebula", "db proxy"],
+	"description":"Nebula Interface is an http access application for based on Nebula.",
+	"keywords":["Nebula"],
 	"homepage":"",
 	"bugs":{"url":"", "email":"cqc@vip.qq.com"},
 	"license":"Apache-2.0",
@@ -10,7 +10,7 @@
 	"files":"src/",
 	"main":"",
 	"man":[],
-	"repository":{ "type":"git", "url":"https://github.com/Bwar/NebulaDbAgent.git"},
+	"repository":{ "type":"git", "url":"https://github.com/Bwar/NebulaInterface.git"},
 	"dependencies":{
 	     "Bwar/Nebula":"^0.9.0"
 	}
